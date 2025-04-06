@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUDDY AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-robot"></i>
+                <span>BUDDY AI</span>
+            </div>
+            <div class="controls">
+                <button id="theme-toggle" class="control-btn" title="Switch mood">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="mute-btn" class="control-btn" title="Toggle voice">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+                <button id="reset-btn" class="control-btn" title="Start fresh">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="content-container">
+            <!-- Chat Section -->
+            <div class="chat-section">
+                <div class="chat-header">
+                    <h2>CHAT WITH BUDDY</h2>
+                    <button id="clear-chat" class="text-btn">
+                        <i class="fa-solid fa-trash"></i> START OVER
+                    </button>
+                </div>
+                <div id="chat-container" class="chat-container">
+                    <!-- Date separator example -->
+                    <div class="date-separator">
+                        <span>TODAY</span>
+                    </div>
+                    
+                    <!-- Messages will be added here by JavaScript -->
+                </div>
+                <form id="chat-form" class="chat-input">
+                    <textarea id="user-input" placeholder="Ask me anything..." rows="1"></textarea>
+                    <button id="send-btn" type="submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Avatar Section -->
+            <div class="avatar-section">
+                <div class="avatar-container">
+                    <div class="corner-decoration"></div>
+                    <div id="avatar-canvas"></div>
+                    <div class="avatar-controls">
+                        <div class="status-indicator">
+                            <div class="status-dot"></div>
+                            <span class="status-text">LISTENING</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio player for TTS (hidden) -->
+    <audio id="audio-player"></audio>
+
+    <!-- Load JS scripts -->    
+    <script src="{{ url_for('static', filename='js/avatar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
